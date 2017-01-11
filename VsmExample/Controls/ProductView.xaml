@@ -1,0 +1,43 @@
+﻿<UserControl
+    x:Class="VsmExample.Controls.ProductView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VsmExample.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <RelativePanel Background="Azure" Padding="6">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="Common">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="rect1.(RelativePanel.Below)" Value=""/>
+                        <Setter Target="rect1.(RelativePanel.AlignLeftWith)" Value=""/>
+                        <Setter Target="rect1.(RelativePanel.AlignRightWith)" Value=""/>
+                        <Setter Target="rect1.(RelativePanel.RightOf)" Value="rect"/>
+                        <Setter Target="rect1.Margin" Value="6,0,0,0"/>
+                        <Setter Target="rect1.Height" Value="94"/>
+                        <Setter Target="rect1.Width" Value="200"/>
+                        <Setter Target="rect2.Margin" Value="6,6,0,0"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Rectangle x:Name="rect" Fill="Lime" Width="130" Height="130"/>
+        <Rectangle x:Name="rect1" Fill="Orange" Height="30" Margin="0,6,0,0"
+                   RelativePanel.Below="rect"
+                   RelativePanel.AlignLeftWith="rect"
+                   RelativePanel.AlignRightWith="rect"/>
+        <Rectangle x:Name="rect2" Fill="SteelBlue" Height="30" Margin="0,6,0,0"
+                   RelativePanel.Below="rect1"
+                   RelativePanel.AlignLeftWith="rect1"
+                   RelativePanel.AlignRightWith="rect1"/>
+        <CheckBox x:Name="checkBox" Margin="4,0,0,0" />
+    </RelativePanel>
+</UserControl>
