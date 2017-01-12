@@ -23,5 +23,15 @@ namespace VsmExample.Controls
         {
             this.InitializeComponent();
         }
+
+        private void checkBox_Checked(object sender, RoutedEventArgs e)
+        {
+            VisualStateManager.GoToState(this,"Selected",false);
+        }
+
+        private void checkBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            VisualStateManager.GoToState(this, "Unselected", false);
+        }
     }
 }

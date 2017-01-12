@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <RelativePanel Background="Azure" Padding="6">
+    <RelativePanel  x:Name="layoutRoot" Background="Azure" Padding="6">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="Common">
                 <VisualState>
@@ -28,6 +28,18 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
+            <VisualStateGroup x:Name="Selection" >
+                <VisualState x:Name="Selected">
+                    <VisualState.Setters>
+                        <Setter Target="layoutRoot.Background" Value="Purple"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Unselected">
+                    <VisualState.Setters>
+                        <Setter Target="layoutRoot.Background" Value="Azure"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Rectangle x:Name="rect" Fill="Lime" Width="130" Height="130"/>
         <Rectangle x:Name="rect1" Fill="Orange" Height="30" Margin="0,6,0,0"
@@ -38,6 +50,6 @@
                    RelativePanel.Below="rect1"
                    RelativePanel.AlignLeftWith="rect1"
                    RelativePanel.AlignRightWith="rect1"/>
-        <CheckBox x:Name="checkBox" Margin="4,0,0,0" />
+        <CheckBox x:Name="checkBox" Margin="4,0,0,0" Checked="checkBox_Checked" Unchecked="checkBox_Unchecked" />
     </RelativePanel>
 </UserControl>
